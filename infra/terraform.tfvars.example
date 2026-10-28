@@ -1,0 +1,19 @@
+project_id = "your-project-id"
+
+# Keep the cluster in one region/zone; this lab is intentionally zonal.
+region = "us-central1"
+zone   = "us-central1-a"
+
+# Phase 1 capacity hypothesis. Change only after measuring.
+# node_machine_type = "e2-standard-2"
+# node_min_count    = 1
+# node_max_count    = 3
+# node_disk_size_gb = 50
+
+# Optional control-plane restriction. Empty means no CIDR restriction.
+# master_authorized_networks = [
+#   { cidr_block = "203.0.113.10/32", display_name = "workstation" },
+# ]
+
+# Bucket-level backstop for Tempo/Loki retention.
+# telemetry_retention_days = 14

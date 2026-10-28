@@ -1,0 +1,12 @@
+# Single overlay that reproduces the lab deployment.
+# Start with chart defaults. Add only: names, exposure, resource settings and
+# telemetry endpoints. Do not disable bundled components on day one.
+
+# Resources are intentionally absent until measured (see infra/README.md
+# and docs/experiments/). Do not invent values here.
+
+opentelemetry-collector:
+  enabled: true          # replaced one signal at a time in Phase 3
+
+# TODO(Phase 3): point service OTLP endpoints at our collector gateway once it
+# exists. Until then leave the chart's bundled collector in place.

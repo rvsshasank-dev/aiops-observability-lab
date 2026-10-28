@@ -1,0 +1,11 @@
+project_id        = "your-project-id"
+billing_account   = "XXXXXX-XXXXXX-XXXXXX"
+budget_amount_usd = 25
+
+# Optional overrides
+# state_bucket_location = "us-central1"
+# labels = {
+#   environment = "lab"
+#   managed-by  = "terraform"
+#   owner       = "aiops-observability-lab"
+# }

@@ -1,0 +1,11 @@
+# Pin the OpenTelemetry Demo Helm chart here before Phase 2.
+# Fill this in from scripts/dev/pin-otel-demo-chart.sh and never leave it blank.
+chart: open-telemetry/opentelemetry-demo
+version: UNPINNED
+repo: https://open-telemetry.github.io/opentelemetry-demo
+appVersion: UNPINNED
+pinned_on: YYYY-MM-DD
+notes: >
+  Feature-flag names and load-generator controls drift between releases.
+  Re-verify every INC-* trigger against this version before writing an
+  experiment record (see review item T7).

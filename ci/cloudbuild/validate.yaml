@@ -1,0 +1,23 @@
+# Validation only. Never applies infrastructure.
+steps:
+  - id: terraform-fmt
+    name: hashicorp/terraform:1.16.5
+    entrypoint: sh
+    args:
+      - -c
+      - terraform fmt -check -recursive infra/
+
+  - id: helm-render
+    name: alpine/helm:4.3.1
+    entrypoint: sh
+    args:
+      - -c
+      - |
+        helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-demo
+        helm template lab open-telemetry/opentelemetry-demo \
+          --version "$(grep '^version:' apps/otel-demo/CHART.lock | awk '{print $2}')" \
+          -f apps/otel-demo/values/lab.yaml > /workspace/rendered.yaml
+        echo "rendered $(wc -l < /workspace/rendered.yaml) lines"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
